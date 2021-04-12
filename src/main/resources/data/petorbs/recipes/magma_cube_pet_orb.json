@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"item":"minecraft:magma_cream"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:magma_cube_pet_orb"}}

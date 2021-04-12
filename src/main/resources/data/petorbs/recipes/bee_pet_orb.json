@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"item":"minecraft:honeycomb"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:bee_pet_orb"}}

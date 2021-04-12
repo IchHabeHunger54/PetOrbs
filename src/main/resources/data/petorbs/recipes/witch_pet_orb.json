@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"tag":"forge:crops/nether_wart"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:witch_pet_orb"}}

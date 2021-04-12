@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["#X#","X X","#X#"],"key":{"#":{"tag":"forge:gems/quartz"},"X":{"item":"minecraft:flint"}},"result":{"item":"petorbs:pet_orb_frame"}}

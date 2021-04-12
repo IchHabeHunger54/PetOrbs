@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"item":"minecraft:ghast_tear"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:ghast_pet_orb"}}

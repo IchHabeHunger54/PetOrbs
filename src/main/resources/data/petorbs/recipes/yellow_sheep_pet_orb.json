@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"item":"minecraft:yellow_wool"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:yellow_sheep_pet_orb"}}
