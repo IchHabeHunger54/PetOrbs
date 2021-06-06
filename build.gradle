@@ -1,7 +1,6 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -10,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle'
 group = 'ihh'
-version = '0.1'
+version = '1.16.5-1.0'
 archivesBaseName = 'petorbs'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 minecraft {
@@ -19,7 +18,6 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             mods {
                 petorbs {
@@ -29,7 +27,6 @@ minecraft {
         }
         server {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             mods {
                 petorbs {
@@ -39,7 +36,6 @@ minecraft {
         }
         data {
             workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             args '--mod', 'petorbs', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
@@ -52,7 +48,7 @@ minecraft {
 }
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.1.37'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 }
 jar {
     manifest {

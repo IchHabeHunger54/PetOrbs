@@ -14,7 +14,8 @@ public class SmiteEffect extends Effect {
 
     @Override
     public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-        if(entityLivingBaseIn.getLastAttackedEntity() != null && entityLivingBaseIn.getLastAttackedEntity().isEntityUndead() && entityLivingBaseIn.isPotionActive(EffectInit.smite)) entityLivingBaseIn.getLastAttackedEntity().attackEntityFrom(DamageSource.MAGIC, (entityLivingBaseIn.getActivePotionEffect(EffectInit.smite).getAmplifier() + 1) * Config.smiteStrength.get());
+        if (entityLivingBaseIn.getLastAttackedEntity() != null && entityLivingBaseIn.getLastAttackedEntity().isEntityUndead() && entityLivingBaseIn.isPotionActive(EffectInit.smite))
+            entityLivingBaseIn.getLastAttackedEntity().attackEntityFrom(DamageSource.MAGIC, (entityLivingBaseIn.getActivePotionEffect(EffectInit.smite).getAmplifier() + 1) * Config.smiteStrength.get());
     }
 
     @Override

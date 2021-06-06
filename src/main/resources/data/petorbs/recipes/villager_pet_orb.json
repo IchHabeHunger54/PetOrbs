@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"tag":"forge:gems/emerald"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:villager_pet_orb"}}
+{"key":{"#":{"tag":"forge:gems/emerald"},"X":{"item":"petorbs:pet_orb_frame"}},"pattern":["###","#X#","###"],"result":{"item":"petorbs:villager_pet_orb"},"type":"minecraft:crafting_shaped"}

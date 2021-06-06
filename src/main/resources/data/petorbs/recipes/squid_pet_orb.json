@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"item":"minecraft:ink_sac"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:squid_pet_orb"}}
+{"key":{"#":{"item":"minecraft:ink_sac"},"X":{"item":"petorbs:pet_orb_frame"}},"pattern":["###","#X#","###"],"result":{"item":"petorbs:squid_pet_orb"},"type":"minecraft:crafting_shaped"}

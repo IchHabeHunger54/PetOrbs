@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","pattern":["###","#X#","###"],"key":{"#":{"item":"petorbs:rainbow_wool"},"X":{"item":"petorbs:pet_orb_frame"}},"result":{"item":"petorbs:rainbow_sheep_pet_orb"}}
+{"key":{"#":{"item":"petorbs:rainbow_wool"},"X":{"item":"petorbs:pet_orb_frame"}},"pattern":["###","#X#","###"],"result":{"item":"petorbs:rainbow_sheep_pet_orb"},"type":"minecraft:crafting_shaped"}

@@ -12,7 +12,8 @@ public class WitherSkeletonPetOrb extends PetOrb {
 
     @Override
     protected void affectPlayer(PlayerEntity player) {
-        if (player.isPotionActive(Effects.WITHER) && (!Config.feeding.get() || eat(player))) player.removePotionEffect(Effects.WITHER);
+        if (player.isPotionActive(Effects.WITHER) && (!Config.feeding.get() || eat(player)))
+            player.removePotionEffect(Effects.WITHER);
     }
 
     @Override

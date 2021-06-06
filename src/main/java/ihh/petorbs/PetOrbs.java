@@ -9,10 +9,13 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import javax.annotation.Nonnull;
+
 @Mod(PetOrbs.MODID)
 public final class PetOrbs {
     public static final String MODID = "petorbs";
     public static final ItemGroup GROUP = new ItemGroup(MODID) {
+        @Nonnull
         @Override
         public ItemStack createIcon() {
             return new ItemStack(ItemInit.PET_ORB_FRAME.get());

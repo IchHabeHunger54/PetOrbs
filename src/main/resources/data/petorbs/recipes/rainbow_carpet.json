@@ -1,1 +1,1 @@
-{"type":"minecraft:crafting_shaped","pattern":["##"],"key":{"#":{"item":"petorbs:rainbow_wool"}},"result":{"item":"petorbs:rainbow_carpet","count":3}}
+{"key":{"#":{"item":"petorbs:rainbow_wool"}},"pattern":["##"],"result":{"count":3,"item":"petorbs:rainbow_carpet"},"type":"minecraft:crafting_shaped"}

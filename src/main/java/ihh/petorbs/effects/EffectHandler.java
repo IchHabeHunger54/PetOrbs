@@ -11,13 +11,13 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = PetOrbs.MODID)
 public final class EffectHandler {
     public static void fall(LivingFallEvent e) {
-        if(e.getEntityLiving().isPotionActive(EffectInit.spidersFall)) e.setDamageMultiplier(0);
+        if (e.getEntityLiving().isPotionActive(EffectInit.spidersFall)) e.setDamageMultiplier(0);
     }
 
     public static void hurt(LivingHurtEvent e) {
-        if(e.getSource().getTrueSource() instanceof LivingEntity && ((LivingEntity) e.getSource().getTrueSource()).isPotionActive(EffectInit.smite))
+        if (e.getSource().getTrueSource() instanceof LivingEntity && ((LivingEntity) e.getSource().getTrueSource()).isPotionActive(EffectInit.smite))
             e.getEntityLiving().addPotionEffect(new EffectInstance(((LivingEntity) e.getSource().getTrueSource()).getActivePotionEffect(EffectInit.smite)));
-        if(e.getSource().getTrueSource() instanceof LivingEntity && ((LivingEntity) e.getSource().getTrueSource()).isPotionActive(EffectInit.baneOfArthropods))
+        if (e.getSource().getTrueSource() instanceof LivingEntity && ((LivingEntity) e.getSource().getTrueSource()).isPotionActive(EffectInit.baneOfArthropods))
             e.getEntityLiving().addPotionEffect(new EffectInstance(((LivingEntity) e.getSource().getTrueSource()).getActivePotionEffect(EffectInit.baneOfArthropods)));
     }
 }

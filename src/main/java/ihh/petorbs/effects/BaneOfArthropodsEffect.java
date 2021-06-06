@@ -15,7 +15,8 @@ public class BaneOfArthropodsEffect extends Effect {
 
     @Override
     public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-        if(entityLivingBaseIn.getLastAttackedEntity() != null && entityLivingBaseIn.getLastAttackedEntity().getCreatureAttribute() == CreatureAttribute.ARTHROPOD && entityLivingBaseIn.isPotionActive(EffectInit.smite)) entityLivingBaseIn.getLastAttackedEntity().attackEntityFrom(DamageSource.MAGIC, (entityLivingBaseIn.getActivePotionEffect(EffectInit.smite).getAmplifier() + 1) * Config.baneOfArthropodsStrength.get());
+        if (entityLivingBaseIn.getLastAttackedEntity() != null && entityLivingBaseIn.getLastAttackedEntity().getCreatureAttribute() == CreatureAttribute.ARTHROPOD && entityLivingBaseIn.isPotionActive(EffectInit.smite))
+            entityLivingBaseIn.getLastAttackedEntity().attackEntityFrom(DamageSource.MAGIC, (entityLivingBaseIn.getActivePotionEffect(EffectInit.smite).getAmplifier() + 1) * Config.baneOfArthropodsStrength.get());
     }
 
     @Override
