@@ -22,9 +22,9 @@ import net.minecraft.potion.Effects;
 import net.minecraftforge.fml.RegistryObject;
 
 public final class ItemInit implements IInit {
-    public static final RegistryObject<Item> RAINBOW_WOOL = item("rainbow_wool", () -> new BlockItem(BlockInit.RAINBOW_WOOL.get(), new Item.Properties().group(PetOrbs.GROUP)));
-    public static final RegistryObject<Item> RAINBOW_CARPET = item("rainbow_carpet", () -> new BlockItem(BlockInit.RAINBOW_CARPET.get(), new Item.Properties().group(PetOrbs.GROUP)));
-    public static final RegistryObject<Item> PET_ORB_FRAME = item("pet_orb_frame", () -> new Item(new Item.Properties().group(PetOrbs.GROUP)));
+    public static final RegistryObject<Item> RAINBOW_WOOL = item("rainbow_wool", () -> new BlockItem(BlockInit.RAINBOW_WOOL.get(), new Item.Properties().tab(PetOrbs.GROUP)));
+    public static final RegistryObject<Item> RAINBOW_CARPET = item("rainbow_carpet", () -> new BlockItem(BlockInit.RAINBOW_CARPET.get(), new Item.Properties().tab(PetOrbs.GROUP)));
+    public static final RegistryObject<Item> PET_ORB_FRAME = item("pet_orb_frame", () -> new Item(new Item.Properties().tab(PetOrbs.GROUP)));
     public static final RegistryObject<Item> COW_PET_ORB = item("cow_pet_orb", CowPetOrb::new);
     public static final RegistryObject<Item> PIG_PET_ORB = item("pig_pet_orb", () -> new PotionPetOrb(TagInit.PIG_PET_FOOD, Effects.SATURATION));
     public static final RegistryObject<Item> WHITE_SHEEP_PET_ORB = item("white_sheep_pet_orb", () -> new SheepPetOrb(0));
@@ -48,17 +48,17 @@ public final class ItemInit implements IInit {
     public static final RegistryObject<Item> SQUID_PET_ORB = item("squid_pet_orb", () -> new PotionPetOrb(TagInit.SQUID_PET_FOOD, Effects.WATER_BREATHING));
     public static final RegistryObject<Item> BAT_PET_ORB = item("bat_pet_orb", () -> new PotionPetOrb(TagInit.BAT_PET_FOOD, Effects.NIGHT_VISION));
     public static final RegistryObject<Item> MOOSHROOM_PET_ORB = item("mooshroom_pet_orb", () -> new PotionPetOrb(TagInit.MOOSHROOM_PET_FOOD, Effects.HEALTH_BOOST));
-    public static final RegistryObject<Item> RABBIT_PET_ORB = item("rabbit_pet_orb", () -> new PotionPetOrb(TagInit.RABBIT_PET_FOOD, Effects.JUMP_BOOST));
+    public static final RegistryObject<Item> RABBIT_PET_ORB = item("rabbit_pet_orb", () -> new PotionPetOrb(TagInit.RABBIT_PET_FOOD, Effects.JUMP));
     public static final RegistryObject<Item> TURTLE_PET_ORB = item("turtle_pet_orb", () -> new PotionPetOrb(TagInit.TURTLE_PET_FOOD, Effects.ABSORPTION));
     public static final RegistryObject<Item> DOLPHIN_PET_ORB = item("dolphin_pet_orb", () -> new PotionPetOrb(TagInit.DOLPHIN_PET_FOOD, Effects.DOLPHINS_GRACE));
-    public static final RegistryObject<Item> FOX_PET_ORB = item("fox_pet_orb", () -> new PotionPetOrb(TagInit.FOX_PET_FOOD, Effects.SPEED));
+    public static final RegistryObject<Item> FOX_PET_ORB = item("fox_pet_orb", () -> new PotionPetOrb(TagInit.FOX_PET_FOOD, Effects.MOVEMENT_SPEED));
     public static final RegistryObject<Item> BEE_PET_ORB = item("bee_pet_orb", BeePetOrb::new);
     public static final RegistryObject<Item> VILLAGER_PET_ORB = item("villager_pet_orb", () -> new PotionPetOrb(TagInit.VILLAGER_PET_FOOD, Effects.HERO_OF_THE_VILLAGE));
     public static final RegistryObject<Item> WANDERING_TRADER_PET_ORB = item("wandering_trader_pet_orb", () -> new PotionPetOrb(TagInit.WANDERING_TRADER_PET_FOOD, Effects.INVISIBILITY));
-    public static final RegistryObject<Item> IRON_GOLEM_PET_ORB = item("iron_golem_pet_orb", () -> new PotionPetOrb(TagInit.IRON_GOLEM_PET_FOOD, Effects.RESISTANCE));
+    public static final RegistryObject<Item> IRON_GOLEM_PET_ORB = item("iron_golem_pet_orb", () -> new PotionPetOrb(TagInit.IRON_GOLEM_PET_FOOD, Effects.DAMAGE_RESISTANCE));
     public static final RegistryObject<Item> SNOW_GOLEM_PET_ORB = item("snow_golem_pet_orb", SnowGolemPetOrb::new);
     public static final RegistryObject<Item> ZOMBIE_PET_ORB = item("zombie_pet_orb", () -> new PotionPetOrb(TagInit.ZOMBIE_PET_FOOD, Effects.REGENERATION));
-    public static final RegistryObject<Item> ZOMBIE_PIGMAN_PET_ORB = item("zombie_pigman_pet_orb", () -> new PotionPetOrb(TagInit.ZOMBIE_PIGMAN_PET_FOOD, Effects.HASTE));
+    public static final RegistryObject<Item> ZOMBIE_PIGMAN_PET_ORB = item("zombie_pigman_pet_orb", () -> new PotionPetOrb(TagInit.ZOMBIE_PIGMAN_PET_FOOD, Effects.DIG_SPEED));
     public static final RegistryObject<Item> ZOMBIE_VILLAGER_PET_ORB = item("zombie_villager_pet_orb", ZombieVillagerPetOrb::new);
     public static final RegistryObject<Item> DROWNED_PET_ORB = item("drowned_pet_orb", () -> new PotionPetOrb(TagInit.DROWNED_PET_FOOD, Effects.CONDUIT_POWER));
     public static final RegistryObject<Item> SKELETON_PET_ORB = item("skeleton_pet_orb", () -> new PotionPetOrb(TagInit.SKELETON_PET_FOOD, EffectInit.smite));
@@ -69,7 +69,7 @@ public final class ItemInit implements IInit {
     public static final RegistryObject<Item> ENDERMAN_PET_ORB = item("enderman_pet_orb", EndermanPetOrb::new);
     public static final RegistryObject<Item> SLIME_PET_ORB = item("slime_pet_orb", () -> new PotionPetOrb(TagInit.SLIME_PET_FOOD, EffectInit.knockbackResistance));
     public static final RegistryObject<Item> MAGMA_CUBE_PET_ORB = item("magma_cube_pet_orb", () -> new PotionPetOrb(TagInit.MAGMA_CUBE_PET_FOOD, Effects.FIRE_RESISTANCE));
-    public static final RegistryObject<Item> BLAZE_PET_ORB = item("blaze_pet_orb", () -> new PotionPetOrb(TagInit.BLAZE_PET_FOOD, Effects.STRENGTH));
+    public static final RegistryObject<Item> BLAZE_PET_ORB = item("blaze_pet_orb", () -> new PotionPetOrb(TagInit.BLAZE_PET_FOOD, Effects.DAMAGE_BOOST));
     public static final RegistryObject<Item> GHAST_PET_ORB = item("ghast_pet_orb", GhastPetOrb::new);
     public static final RegistryObject<Item> WITCH_PET_ORB = item("witch_pet_orb", WitchPetOrb::new);
     public static final RegistryObject<Item> PHANTOM_PET_ORB = item("phantom_pet_orb", () -> new PotionPetOrb(TagInit.PHANTOM_PET_FOOD, Effects.SLOW_FALLING));

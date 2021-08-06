@@ -12,8 +12,8 @@ public class BeePetOrb extends PetOrb {
 
     @Override
     protected void affectPlayer(PlayerEntity player) {
-        if (player.isPotionActive(Effects.POISON) && (!Config.feeding.get() || eat(player)))
-            player.removePotionEffect(Effects.POISON);
+        if (player.hasEffect(Effects.POISON) && (!Config.feeding.get() || eat(player)))
+            player.removeEffect(Effects.POISON);
     }
 
     @Override

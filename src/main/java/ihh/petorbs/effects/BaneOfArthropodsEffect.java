@@ -14,13 +14,13 @@ public class BaneOfArthropodsEffect extends Effect {
     }
 
     @Override
-    public void performEffect(LivingEntity entityLivingBaseIn, int amplifier) {
-        if (entityLivingBaseIn.getLastAttackedEntity() != null && entityLivingBaseIn.getLastAttackedEntity().getCreatureAttribute() == CreatureAttribute.ARTHROPOD && entityLivingBaseIn.isPotionActive(EffectInit.smite))
-            entityLivingBaseIn.getLastAttackedEntity().attackEntityFrom(DamageSource.MAGIC, (entityLivingBaseIn.getActivePotionEffect(EffectInit.smite).getAmplifier() + 1) * Config.baneOfArthropodsStrength.get());
+    public void applyEffectTick(LivingEntity entityLivingBaseIn, int amplifier) {
+        if (entityLivingBaseIn.getLastHurtMob() != null && entityLivingBaseIn.getLastHurtMob().getMobType() == CreatureAttribute.ARTHROPOD && entityLivingBaseIn.hasEffect(EffectInit.baneOfArthropods))
+            entityLivingBaseIn.getLastHurtMob().hurt(DamageSource.MAGIC, (entityLivingBaseIn.getEffect(EffectInit.baneOfArthropods).getAmplifier() + 1) * Config.baneOfArthropodsStrength.get());
     }
 
     @Override
-    public boolean isReady(int duration, int amplifier) {
+    public boolean isDurationEffectTick(int duration, int amplifier) {
         return true;
     }
 }

@@ -18,7 +18,7 @@ public class SheepPetOrb extends PetOrb {
 
     @Override
     protected void rightClick(PlayerEntity player) {
-        player.addItemStackToInventory(new ItemStack(ITEMS[COLOR]));
+        player.addItem(new ItemStack(ITEMS[COLOR]));
     }
 
     @Override

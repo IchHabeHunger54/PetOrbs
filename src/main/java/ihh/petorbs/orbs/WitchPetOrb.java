@@ -14,9 +14,9 @@ public class WitchPetOrb extends PetOrb {
 
     @Override
     public void rightClick(PlayerEntity player) {
-        for (EffectInstance e : Lists.newArrayList(player.getActivePotionEffects()))
-            if (e.getPotion().getEffectType() == EffectType.HARMFUL && e.getPotion() != Effects.POISON && e.getPotion() != Effects.WITHER)
-                player.removePotionEffect(e.getPotion());
+        for (EffectInstance e : Lists.newArrayList(player.getActiveEffects()))
+            if (e.getEffect().getCategory() == EffectType.HARMFUL && e.getEffect() != Effects.POISON && e.getEffect() != Effects.WITHER)
+                player.removeEffect(e.getEffect());
     }
 
     @Override

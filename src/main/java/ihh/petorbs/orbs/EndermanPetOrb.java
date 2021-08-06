@@ -15,12 +15,12 @@ public class EndermanPetOrb extends PetOrb {
 
     @Override
     protected void rightClick(PlayerEntity player) {
-        player.world.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-        if (!player.world.isRemote) {
-            EnderPearlEntity enderpearlentity = new EnderPearlEntity(player.world, player);
+        player.level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        if (!player.level.isClientSide) {
+            EnderPearlEntity enderpearlentity = new EnderPearlEntity(player.level, player);
             enderpearlentity.setItem(new ItemStack(Items.ENDER_PEARL));
-            enderpearlentity.setDirectionAndMovement(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-            player.world.addEntity(enderpearlentity);
+            enderpearlentity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
+            player.level.addFreshEntity(enderpearlentity);
         }
     }
 

@@ -15,12 +15,12 @@ public class SnowGolemPetOrb extends PetOrb {
 
     @Override
     protected void rightClick(PlayerEntity player) {
-        player.world.playSound(null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
-        if (!player.world.isRemote) {
-            SnowballEntity snowballentity = new SnowballEntity(player.world, player);
+        player.level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+        if (!player.level.isClientSide) {
+            SnowballEntity snowballentity = new SnowballEntity(player.level, player);
             snowballentity.setItem(new ItemStack(Items.SNOWBALL));
-            snowballentity.setDirectionAndMovement(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
-            player.world.addEntity(snowballentity);
+            snowballentity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
+            player.level.addFreshEntity(snowballentity);
         }
     }
 

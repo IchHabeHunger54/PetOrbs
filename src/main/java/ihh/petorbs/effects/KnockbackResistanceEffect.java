@@ -12,7 +12,7 @@ public class KnockbackResistanceEffect extends Effect {
     }
 
     @Override
-    public double getAttributeModifierAmount(int amplifier, @Nonnull AttributeModifier modifier) {
+    public double getAttributeModifierValue(int amplifier, @Nonnull AttributeModifier modifier) {
         return amplifier / 10f + 0.1;
     }
 }

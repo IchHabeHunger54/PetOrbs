@@ -17,11 +17,11 @@ public class CreeperPetOrb extends PetOrb {
 
     @Nonnull
     @Override
-    public ActionResultType onItemUse(ItemUseContext context) {
-        if (!context.getWorld().isRemote) {
-            TNTEntity tntentity = new TNTEntity(context.getWorld(), context.getPos().getX() + 0.5D, context.getPos().getY() + 1, context.getPos().getZ() + 0.5D, context.getPlayer());
-            context.getWorld().addEntity(tntentity);
-            context.getWorld().playSound(null, tntentity.getPosX(), tntentity.getPosY(), tntentity.getPosZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
+    public ActionResultType useOn(ItemUseContext context) {
+        if (!context.getLevel().isClientSide) {
+            TNTEntity tntentity = new TNTEntity(context.getLevel(), context.getClickedPos().getX() + 0.5D, context.getClickedPos().getY() + 1, context.getClickedPos().getZ() + 0.5D, context.getPlayer());
+            context.getLevel().addFreshEntity(tntentity);
+            context.getLevel().playSound(null, tntentity.getX(), tntentity.getY(), tntentity.getZ(), SoundEvents.TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return ActionResultType.SUCCESS;
         }
         return ActionResultType.PASS;

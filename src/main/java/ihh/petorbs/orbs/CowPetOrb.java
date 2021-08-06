@@ -12,8 +12,8 @@ public class CowPetOrb extends PetOrb {
 
     @Override
     protected void rightClick(PlayerEntity player) {
-        for (EffectInstance e : Lists.newArrayList(player.getActivePotionEffects()))
-            player.removePotionEffect(e.getPotion());
+        for (EffectInstance e : Lists.newArrayList(player.getActiveEffects()))
+            player.removeEffect(e.getEffect());
     }
 
     @Override

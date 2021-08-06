@@ -17,7 +17,7 @@ public final class PetOrbs {
     public static final ItemGroup GROUP = new ItemGroup(MODID) {
         @Nonnull
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ItemInit.PET_ORB_FRAME.get());
         }
     };

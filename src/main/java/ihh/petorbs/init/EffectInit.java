@@ -10,7 +10,7 @@ import net.minecraft.potion.Effect;
 import net.minecraftforge.fml.RegistryObject;
 
 public final class EffectInit implements IInit {
-    public static final Effect knockbackResistance = new KnockbackResistanceEffect().addAttributesModifier(Attributes.KNOCKBACK_RESISTANCE, "CC6AF143-2BD2-4215-B836-2605AED11727", 0, AttributeModifier.Operation.ADDITION);
+    public static final Effect knockbackResistance = new KnockbackResistanceEffect().addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, "CC6AF143-2BD2-4215-B836-2605AED11727", 0, AttributeModifier.Operation.ADDITION);
     public static final Effect smite = new SmiteEffect();
     public static final Effect baneOfArthropods = new BaneOfArthropodsEffect();
     public static final Effect spidersFall = new SpidersFallEffect();

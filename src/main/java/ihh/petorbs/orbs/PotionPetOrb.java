@@ -17,8 +17,8 @@ public class PotionPetOrb extends PetOrb {
 
     @Override
     protected void affectPlayer(PlayerEntity player) {
-        if ((!player.isPotionActive(EFFECT) || player.isPotionActive(EFFECT) && player.getActivePotionEffect(EFFECT).getDuration() <= 200) && (!Config.feeding.get() || eat(player)))
-            player.addPotionEffect(new EffectInstance(EFFECT, Config.duration.get(), 0, false, Config.particles.get(), Config.icon.get()));
+        if ((!player.hasEffect(EFFECT) || player.hasEffect(EFFECT) && player.getEffect(EFFECT).getDuration() <= 200) && (!Config.feeding.get() || eat(player)))
+            player.addEffect(new EffectInstance(EFFECT, Config.duration.get(), 0, false, Config.particles.get(), Config.icon.get()));
     }
 
     @Override
