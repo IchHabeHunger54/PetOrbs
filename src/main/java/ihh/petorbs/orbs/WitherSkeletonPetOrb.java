@@ -2,8 +2,8 @@ package ihh.petorbs.orbs;
 
 import ihh.petorbs.Config;
 import ihh.petorbs.init.TagInit;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.potion.Effects;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 
 public class WitherSkeletonPetOrb extends PetOrb {
     public WitherSkeletonPetOrb() {
@@ -11,9 +11,9 @@ public class WitherSkeletonPetOrb extends PetOrb {
     }
 
     @Override
-    protected void affectPlayer(PlayerEntity player) {
-        if (player.hasEffect(Effects.WITHER) && (!Config.feeding.get() || eat(player)))
-            player.removeEffect(Effects.WITHER);
+    protected void affectPlayer(Player player) {
+        if (player.hasEffect(MobEffects.WITHER) && (!Config.feeding.get() || eat(player)))
+            player.removeEffect(MobEffects.WITHER);
     }
 
     @Override

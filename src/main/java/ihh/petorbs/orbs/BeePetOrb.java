@@ -2,8 +2,8 @@ package ihh.petorbs.orbs;
 
 import ihh.petorbs.Config;
 import ihh.petorbs.init.TagInit;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.potion.Effects;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
 
 public class BeePetOrb extends PetOrb {
     public BeePetOrb() {
@@ -11,9 +11,9 @@ public class BeePetOrb extends PetOrb {
     }
 
     @Override
-    protected void affectPlayer(PlayerEntity player) {
-        if (player.hasEffect(Effects.POISON) && (!Config.feeding.get() || eat(player)))
-            player.removeEffect(Effects.POISON);
+    protected void affectPlayer(Player player) {
+        if (player.hasEffect(MobEffects.POISON) && (!Config.feeding.get() || eat(player)))
+            player.removeEffect(MobEffects.POISON);
     }
 
     @Override

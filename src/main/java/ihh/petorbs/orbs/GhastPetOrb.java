@@ -1,10 +1,10 @@
 package ihh.petorbs.orbs;
 
 import ihh.petorbs.init.TagInit;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.FireballEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.LargeFireball;
+import net.minecraft.world.phys.Vec3;
 
 public class GhastPetOrb extends PetOrb {
     public GhastPetOrb() {
@@ -12,9 +12,10 @@ public class GhastPetOrb extends PetOrb {
     }
 
     @Override
-    protected void rightClick(PlayerEntity player) {
-        Vector3d vec3d = player.getLookAngle();
-        FireballEntity fireballentity = new FireballEntity(player.level, player.getX() + vec3d.x, player.getEyeY() + vec3d.y, player.getZ() + vec3d.z, vec3d.x, vec3d.y, vec3d.z);
+    protected void rightClick(Player player) {
+        Vec3 vec3d = player.getLookAngle();
+        LargeFireball fireballentity = new LargeFireball(player.level, player, player.getX() + vec3d.x, player.getEyeY() + vec3d.y, player.getZ() + vec3d.z, 1);
+        fireballentity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0F, 1.5F, 1F);
         player.level.levelEvent(null, 1016, new BlockPos(player.getX(), player.getY(), player.getZ()), 0);
         player.level.addFreshEntity(fireballentity);
     }

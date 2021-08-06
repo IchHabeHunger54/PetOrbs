@@ -1,12 +1,12 @@
 package ihh.petorbs.orbs;
 
 import ihh.petorbs.init.TagInit;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.SnowballEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Snowball;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 public class SnowGolemPetOrb extends PetOrb {
     public SnowGolemPetOrb() {
@@ -14,12 +14,12 @@ public class SnowGolemPetOrb extends PetOrb {
     }
 
     @Override
-    protected void rightClick(PlayerEntity player) {
-        player.level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
+    protected void rightClick(Player player) {
+        player.level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.PLAYERS, 0.5F, 0.4F / (player.level.random.nextFloat() * 0.4F + 0.8F));
         if (!player.level.isClientSide) {
-            SnowballEntity snowballentity = new SnowballEntity(player.level, player);
+            Snowball snowballentity = new Snowball(player.level, player);
             snowballentity.setItem(new ItemStack(Items.SNOWBALL));
-            snowballentity.shootFromRotation(player, player.xRot, player.yRot, 0.0F, 1.5F, 1.0F);
+            snowballentity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.5F, 1.0F);
             player.level.addFreshEntity(snowballentity);
         }
     }

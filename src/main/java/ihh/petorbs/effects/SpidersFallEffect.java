@@ -1,10 +1,10 @@
 package ihh.petorbs.effects;
 
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectType;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
 
-public class SpidersFallEffect extends Effect {
+public class SpidersFallEffect extends MobEffect {
     public SpidersFallEffect() {
-        super(EffectType.BENEFICIAL, 0xf7f7f7);
+        super(MobEffectCategory.BENEFICIAL, 0xf7f7f7);
     }
 }

@@ -1,14 +1,14 @@
 package ihh.petorbs.effects;
 
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectType;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 import javax.annotation.Nonnull;
 
-public class KnockbackResistanceEffect extends Effect {
+public class KnockbackResistanceEffect extends MobEffect {
     public KnockbackResistanceEffect() {
-        super(EffectType.BENEFICIAL, 0x1fbf5f);
+        super(MobEffectCategory.BENEFICIAL, 0x1fbf5f);
     }
 
     @Override

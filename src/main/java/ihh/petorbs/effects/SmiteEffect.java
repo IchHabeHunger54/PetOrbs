@@ -2,14 +2,14 @@ package ihh.petorbs.effects;
 
 import ihh.petorbs.Config;
 import ihh.petorbs.init.EffectInit;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectType;
-import net.minecraft.util.DamageSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.LivingEntity;
 
-public class SmiteEffect extends Effect {
+public class SmiteEffect extends MobEffect {
     public SmiteEffect() {
-        super(EffectType.BENEFICIAL, 0x7f9fbf);
+        super(MobEffectCategory.BENEFICIAL, 0x7f9fbf);
     }
 
     @Override

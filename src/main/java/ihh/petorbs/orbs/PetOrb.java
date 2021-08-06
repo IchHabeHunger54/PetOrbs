@@ -2,18 +2,18 @@ package ihh.petorbs.orbs;
 
 import ihh.petorbs.Config;
 import ihh.petorbs.PetOrbs;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tags.ITag;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import java.util.Iterator;
 import java.util.List;
@@ -21,57 +21,57 @@ import javax.annotation.Nonnull;
 
 public class PetOrb extends Item {
     public static final String KEY = "disabled";
-    protected final ITag.INamedTag<Item> FOOD;
+    protected final Tag.Named<Item> FOOD;
 
-    public PetOrb(ITag.INamedTag<Item> food) {
+    public PetOrb(Tag.Named<Item> food) {
         super(new Item.Properties().tab(PetOrbs.GROUP).stacksTo(1));
         FOOD = food;
     }
 
     @Override
-    public void appendHoverText(@Nonnull ItemStack stack, World world, @Nonnull List<ITextComponent> tooltip, @Nonnull ITooltipFlag flag) {
+    public void appendHoverText(@Nonnull ItemStack stack, Level world, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
         if (world != null) {
             if (Config.tooltips.get())
-                tooltip.add(new TranslationTextComponent(stack.getItem().getDescriptionId() + ".tooltip"));
+                tooltip.add(new TranslatableComponent(stack.getItem().getDescriptionId() + ".tooltip"));
             if (canDisable() && Config.status.get())
-                tooltip.add(new TranslationTextComponent(PetOrbs.MODID + (isDisabled(stack) ? ".disabled" : ".enabled")));
+                tooltip.add(new TranslatableComponent(PetOrbs.MODID + (isDisabled(stack) ? ".disabled" : ".enabled")));
             if (Config.feeding.get() && Config.food.get()) {
                 if (FOOD.getValues().isEmpty())
-                    tooltip.add(new TranslationTextComponent(PetOrbs.MODID + ".noFood"));
+                    tooltip.add(new TranslatableComponent(PetOrbs.MODID + ".noFood"));
                 else
-                    tooltip.add(new TranslationTextComponent(PetOrbs.MODID + ".eats").append(new StringTextComponent(getFoodTranslations())));
+                    tooltip.add(new TranslatableComponent(PetOrbs.MODID + ".eats").append(new TextComponent(getFoodTranslations())));
             }
         }
     }
 
     @Override
-    public void inventoryTick(@Nonnull ItemStack stack, @Nonnull World world, @Nonnull Entity entity, int itemSlot, boolean isSelected) {
-        if (!isDisabled(stack)) affectPlayer((PlayerEntity) entity);
+    public void inventoryTick(@Nonnull ItemStack stack, @Nonnull Level world, @Nonnull Entity entity, int itemSlot, boolean isSelected) {
+        if (!isDisabled(stack)) affectPlayer((Player) entity);
     }
 
     @Nonnull
     @Override
-    public ActionResult<ItemStack> use(@Nonnull World world, PlayerEntity player, @Nonnull Hand hand) {
+    public InteractionResultHolder<ItemStack> use(@Nonnull Level world, Player player, @Nonnull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (canDisable() && player.isCrouching()) {
             if (isDisabled(stack)) {
                 stack.getOrCreateTag().putBoolean(KEY, false);
-                player.displayClientMessage(new TranslationTextComponent(PetOrbs.MODID + ".enable"), true);
+                player.displayClientMessage(new TranslatableComponent(PetOrbs.MODID + ".enable"), true);
             } else {
                 stack.getOrCreateTag().putBoolean(KEY, true);
-                player.displayClientMessage(new TranslationTextComponent(PetOrbs.MODID + ".disable"), true);
+                player.displayClientMessage(new TranslatableComponent(PetOrbs.MODID + ".disable"), true);
             }
-            return ActionResult.success(stack);
+            return InteractionResultHolder.success(stack);
         }
         if (canRightClick() && (!Config.feeding.get() || eat(player))) rightClick(player);
         return super.use(world, player, hand);
     }
 
-    public final boolean eat(PlayerEntity player) {
+    public final boolean eat(Player player) {
         if (player.isCreative()) return true;
-        for (int i = 0; i < player.inventory.getContainerSize(); i++) {
-            if (FOOD.contains(player.inventory.getItem(i).getItem())) {
-                player.inventory.getItem(i).shrink(1);
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+            if (FOOD.contains(player.getInventory().getItem(i).getItem())) {
+                player.getInventory().getItem(i).shrink(1);
                 return true;
             }
         }
@@ -82,10 +82,10 @@ public class PetOrb extends Item {
         return canDisable() && stack.hasTag() && stack.getOrCreateTag().getBoolean(KEY);
     }
 
-    protected void affectPlayer(PlayerEntity player) {
+    protected void affectPlayer(Player player) {
     }
 
-    protected void rightClick(PlayerEntity player) {
+    protected void rightClick(Player player) {
     }
 
     protected boolean canDisable() {
@@ -99,9 +99,9 @@ public class PetOrb extends Item {
     private String getFoodTranslations() {
         Iterator<Item> iterator = FOOD.getValues().iterator();
         if (iterator.hasNext()) {
-            StringBuilder sb = new StringBuilder(new TranslationTextComponent(iterator.next().getDescriptionId()).getString());
+            StringBuilder sb = new StringBuilder(new TranslatableComponent(iterator.next().getDescriptionId()).getString());
             while (iterator.hasNext())
-                sb.append(new TranslationTextComponent(PetOrbs.MODID + ".eats.split").getString()).append(new TranslationTextComponent(iterator.next().getDescriptionId()).getString());
+                sb.append(new TranslatableComponent(PetOrbs.MODID + ".eats.split").getString()).append(new TranslatableComponent(iterator.next().getDescriptionId()).getString());
             return sb.toString();
         }
         return "";
