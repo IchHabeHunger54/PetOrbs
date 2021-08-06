@@ -2,7 +2,6 @@ package ihh.petorbs.init;
 
 import ihh.petorbs.PetOrbs;
 import net.minecraft.block.Block;
-import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Effect;
 import net.minecraftforge.eventbus.api.IEventBus;

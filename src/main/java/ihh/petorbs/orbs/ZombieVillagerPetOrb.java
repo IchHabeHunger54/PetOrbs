@@ -1,9 +1,6 @@
 package ihh.petorbs.orbs;
 
 import ihh.petorbs.init.TagInit;
-
-import javax.annotation.Nonnull;
-
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.monster.ZombieVillagerEntity;
@@ -11,6 +8,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
+
+import javax.annotation.Nonnull;
 
 public class ZombieVillagerPetOrb extends PetOrb {
     public ZombieVillagerPetOrb() {

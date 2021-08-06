@@ -1,12 +1,12 @@
 package ihh.petorbs.init;
 
+import Effect;
 import ihh.petorbs.effects.BaneOfArthropodsEffect;
 import ihh.petorbs.effects.KnockbackResistanceEffect;
 import ihh.petorbs.effects.SmiteEffect;
 import ihh.petorbs.effects.SpidersFallEffect;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.potion.Effect;
 import net.minecraftforge.fml.RegistryObject;
 
 public final class EffectInit implements IInit {

@@ -1,5 +1,6 @@
 package ihh.petorbs.init;
 
+import RegistryObject;
 import ihh.petorbs.PetOrbs;
 import ihh.petorbs.orbs.BeePetOrb;
 import ihh.petorbs.orbs.ChickenPetOrb;
@@ -13,13 +14,11 @@ import ihh.petorbs.orbs.SnowGolemPetOrb;
 import ihh.petorbs.orbs.WitchPetOrb;
 import ihh.petorbs.orbs.WitherSkeletonPetOrb;
 import ihh.petorbs.orbs.ZombieVillagerPetOrb;
-
-import java.util.function.Supplier;
-
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Effects;
-import net.minecraftforge.fml.RegistryObject;
+
+import java.util.function.Supplier;
 
 public final class ItemInit implements IInit {
     public static final RegistryObject<Item> RAINBOW_WOOL = item("rainbow_wool", () -> new BlockItem(BlockInit.RAINBOW_WOOL.get(), new Item.Properties().tab(PetOrbs.GROUP)));

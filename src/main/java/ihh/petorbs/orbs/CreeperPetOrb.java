@@ -1,14 +1,13 @@
 package ihh.petorbs.orbs;
 
 import ihh.petorbs.init.TagInit;
-
-import javax.annotation.Nonnull;
-
 import net.minecraft.entity.item.TNTEntity;
 import net.minecraft.item.ItemUseContext;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+
+import javax.annotation.Nonnull;
 
 public class CreeperPetOrb extends PetOrb {
     public CreeperPetOrb() {

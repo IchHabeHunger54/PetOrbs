@@ -15,9 +15,9 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 
-import javax.annotation.Nonnull;
 import java.util.Iterator;
 import java.util.List;
+import javax.annotation.Nonnull;
 
 public class PetOrb extends Item {
     public static final String KEY = "disabled";

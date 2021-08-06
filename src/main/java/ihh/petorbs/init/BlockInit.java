@@ -1,9 +1,9 @@
 package ihh.petorbs.init;
 
+import RegistryObject;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CarpetBlock;
-import net.minecraftforge.fml.RegistryObject;
 
 public final class BlockInit implements IInit {
     public static final RegistryObject<Block> RAINBOW_WOOL = BLOCKS.register("rainbow_wool", () -> new Block(Block.Properties.copy(Blocks.WHITE_WOOL)));

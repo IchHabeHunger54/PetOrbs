@@ -2,7 +2,6 @@ package ihh.petorbs.effects;
 
 import ihh.petorbs.Config;
 import ihh.petorbs.init.EffectInit;
-import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
