@@ -18,11 +18,11 @@ public class ZombieVillagerPetOrb extends PetOrb {
 
     @Override
     @Nonnull
-    public InteractionResult interactLivingEntity(@Nonnull ItemStack stack, @Nonnull Player player, LivingEntity target, @Nonnull InteractionHand hand) {
-        if (target.getType() == EntityType.ZOMBIE_VILLAGER && !((ZombieVillager) target).isConverting() && eat(player)) {
-            ((ZombieVillager) target).startConverting(player.getUUID(), player.level.random.nextInt(2401) + 3600);
+    public InteractionResult interactLivingEntity(@Nonnull ItemStack stack, @Nonnull Player player, LivingEntity entity, @Nonnull InteractionHand hand) {
+        if (entity.getType() == EntityType.ZOMBIE_VILLAGER && !((ZombieVillager) entity).isConverting() && eat(player)) {
+            ((ZombieVillager) entity).startConverting(player.getUUID(), player.getLevel().random.nextInt(2401) + 3600);
             return InteractionResult.SUCCESS;
         }
-        return super.interactLivingEntity(stack, player, target, hand);
+        return super.interactLivingEntity(stack, player, entity, hand);
     }
 }

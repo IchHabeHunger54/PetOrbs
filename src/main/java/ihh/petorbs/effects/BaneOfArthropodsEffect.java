@@ -14,9 +14,10 @@ public class BaneOfArthropodsEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity entityLivingBaseIn, int amplifier) {
-        if (entityLivingBaseIn.getLastHurtMob() != null && entityLivingBaseIn.getLastHurtMob().getMobType() == MobType.ARTHROPOD && entityLivingBaseIn.hasEffect(EffectInit.baneOfArthropods))
-            entityLivingBaseIn.getLastHurtMob().hurt(DamageSource.MAGIC, (entityLivingBaseIn.getEffect(EffectInit.baneOfArthropods).getAmplifier() + 1) * Config.baneOfArthropodsStrength.get());
+    public void applyEffectTick(LivingEntity entity, int amplifier) {
+        if (entity.getLastHurtMob() != null && entity.getLastHurtMob().getMobType() == MobType.ARTHROPOD && entity.hasEffect(EffectInit.baneOfArthropods)) {
+            entity.getLastHurtMob().hurt(DamageSource.MAGIC, (entity.getEffect(EffectInit.baneOfArthropods).getAmplifier() + 1) * Config.baneOfArthropodsStrength.get());
+        }
     }
 
     @Override

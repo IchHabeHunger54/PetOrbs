@@ -13,9 +13,10 @@ public class SmiteEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity entityLivingBaseIn, int amplifier) {
-        if (entityLivingBaseIn.getLastHurtMob() != null && entityLivingBaseIn.getLastHurtMob().isInvertedHealAndHarm() && entityLivingBaseIn.hasEffect(EffectInit.smite))
-            entityLivingBaseIn.getLastHurtMob().hurt(DamageSource.MAGIC, (entityLivingBaseIn.getEffect(EffectInit.smite).getAmplifier() + 1) * Config.smiteStrength.get());
+    public void applyEffectTick(LivingEntity entity, int amplifier) {
+        if (entity.getLastHurtMob() != null && entity.getLastHurtMob().isInvertedHealAndHarm() && entity.hasEffect(EffectInit.smite)) {
+            entity.getLastHurtMob().hurt(DamageSource.MAGIC, (entity.getEffect(EffectInit.smite).getAmplifier() + 1) * Config.smiteStrength.get());
+        }
     }
 
     @Override

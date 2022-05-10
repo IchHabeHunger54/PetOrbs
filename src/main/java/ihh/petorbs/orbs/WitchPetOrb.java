@@ -1,6 +1,5 @@
 package ihh.petorbs.orbs;
 
-import com.google.common.collect.Lists;
 import ihh.petorbs.init.TagInit;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -14,9 +13,11 @@ public class WitchPetOrb extends PetOrb {
 
     @Override
     public void rightClick(Player player) {
-        for (MobEffectInstance e : Lists.newArrayList(player.getActiveEffects()))
-            if (e.getEffect().getCategory() == MobEffectCategory.HARMFUL && e.getEffect() != MobEffects.POISON && e.getEffect() != MobEffects.WITHER)
-                player.removeEffect(e.getEffect());
+        for (MobEffectInstance instance : player.getActiveEffects()) {
+            if (instance.getEffect().getCategory() == MobEffectCategory.HARMFUL && instance.getEffect() != MobEffects.POISON && instance.getEffect() != MobEffects.WITHER) {
+                player.removeEffect(instance.getEffect());
+            }
+        }
     }
 
     @Override

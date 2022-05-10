@@ -1,6 +1,5 @@
 package ihh.petorbs.orbs;
 
-import com.google.common.collect.Lists;
 import ihh.petorbs.init.TagInit;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
@@ -12,8 +11,9 @@ public class CowPetOrb extends PetOrb {
 
     @Override
     protected void rightClick(Player player) {
-        for (MobEffectInstance e : Lists.newArrayList(player.getActiveEffects()))
-            player.removeEffect(e.getEffect());
+        for (MobEffectInstance instance : player.getActiveEffects()) {
+            player.removeEffect(instance.getEffect());
+        }
     }
 
     @Override

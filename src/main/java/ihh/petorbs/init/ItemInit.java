@@ -16,7 +16,7 @@ import ihh.petorbs.orbs.ZombieVillagerPetOrb;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 

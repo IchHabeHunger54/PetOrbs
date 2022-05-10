@@ -12,8 +12,9 @@ public class BeePetOrb extends PetOrb {
 
     @Override
     protected void affectPlayer(Player player) {
-        if (player.hasEffect(MobEffects.POISON) && (!Config.feeding.get() || eat(player)))
+        if (player.hasEffect(MobEffects.POISON) && (!Config.feeding.get() || eat(player))) {
             player.removeEffect(MobEffects.POISON);
+        }
     }
 
     @Override

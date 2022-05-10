@@ -12,8 +12,9 @@ public class WitherSkeletonPetOrb extends PetOrb {
 
     @Override
     protected void affectPlayer(Player player) {
-        if (player.hasEffect(MobEffects.WITHER) && (!Config.feeding.get() || eat(player)))
+        if (player.hasEffect(MobEffects.WITHER) && (!Config.feeding.get() || eat(player))) {
             player.removeEffect(MobEffects.WITHER);
+        }
     }
 
     @Override

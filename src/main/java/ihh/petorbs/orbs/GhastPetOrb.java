@@ -13,11 +13,11 @@ public class GhastPetOrb extends PetOrb {
 
     @Override
     protected void rightClick(Player player) {
-        Vec3 vec3d = player.getLookAngle();
-        LargeFireball fireballentity = new LargeFireball(player.level, player, player.getX() + vec3d.x, player.getEyeY() + vec3d.y, player.getZ() + vec3d.z, 1);
-        fireballentity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0F, 1.5F, 1F);
-        player.level.levelEvent(null, 1016, new BlockPos(player.getX(), player.getY(), player.getZ()), 0);
-        player.level.addFreshEntity(fireballentity);
+        Vec3 vec3 = player.getLookAngle().normalize();
+        LargeFireball entity = new LargeFireball(player.getLevel(), player, vec3.x, vec3.y, vec3.z, 1);
+        entity.setPos(player.getX() + vec3.x, player.getEyeY() + vec3.y, player.getZ() + vec3.z);
+        player.getLevel().levelEvent(null, 1016, new BlockPos(player.getX(), player.getY(), player.getZ()), 0);
+        player.getLevel().addFreshEntity(entity);
     }
 
     @Override

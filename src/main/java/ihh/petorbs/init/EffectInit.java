@@ -7,7 +7,7 @@ import ihh.petorbs.effects.SpidersFallEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 public final class EffectInit implements IInit {
     public static final MobEffect knockbackResistance = new KnockbackResistanceEffect().addAttributeModifier(Attributes.KNOCKBACK_RESISTANCE, "CC6AF143-2BD2-4215-B836-2605AED11727", 0, AttributeModifier.Operation.ADDITION);
