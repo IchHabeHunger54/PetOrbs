@@ -13,16 +13,16 @@ import net.minecraftforge.fml.common.Mod;
 public final class EffectHandler {
     @SubscribeEvent
     public static void fall(LivingFallEvent e) {
-        if (e.getEntityLiving().hasEffect(EffectInit.spidersFall)) e.setDamageMultiplier(0);
+        if (e.getEntity().hasEffect(EffectInit.spidersFall)) e.setDamageMultiplier(0);
     }
 
     @SubscribeEvent
     public static void hurt(LivingHurtEvent e) {
         if (e.getSource().getEntity() instanceof LivingEntity && ((LivingEntity) e.getSource().getEntity()).hasEffect(EffectInit.smite)) {
-            e.getEntityLiving().addEffect(new MobEffectInstance(((LivingEntity) e.getSource().getEntity()).getEffect(EffectInit.smite)));
+            e.getEntity().addEffect(new MobEffectInstance(((LivingEntity) e.getSource().getEntity()).getEffect(EffectInit.smite)));
         }
         if (e.getSource().getEntity() instanceof LivingEntity && ((LivingEntity) e.getSource().getEntity()).hasEffect(EffectInit.baneOfArthropods)) {
-            e.getEntityLiving().addEffect(new MobEffectInstance(((LivingEntity) e.getSource().getEntity()).getEffect(EffectInit.baneOfArthropods)));
+            e.getEntity().addEffect(new MobEffectInstance(((LivingEntity) e.getSource().getEntity()).getEffect(EffectInit.baneOfArthropods)));
         }
     }
 }
